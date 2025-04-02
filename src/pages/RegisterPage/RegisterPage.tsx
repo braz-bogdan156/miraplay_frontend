@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MyButton from "../../components/UI/button/MyButton";
+import MyInput from "../../components/UI/input/MyInput";
+import styles from "./RegisterPage.module.css"
 
 
 const RegisterPage = () => {
@@ -45,51 +48,63 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-md w-80"
-      >
-        <h2 className="text-xl font-semibold mb-4">Реєстрація</h2>
+    <div className={styles.formContainer}>
+      
+      <form className= {styles.form}
+      onSubmit={handleSubmit}
+       >
+        <h2 className={styles.title}>Реєстрація</h2>
 
-        {error && <p className="text-red-500">{error}</p>}
-
-        <input
+        {error && <p >{error}</p>}
+        <div className={styles.registrationInputes__container}>
+        <MyInput
           type="text"
           name="username"
           placeholder="username"
           value={formData.username}
           onChange={handleChange}
           required
-          className="border p-2 w-full rounded mb-3"
+      
         />
 
-        <input
+        <MyInput
           type="email"
           name="email"
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
           required
-          className="border p-2 w-full rounded mb-3"
+      
         />
 
-        <input
+        <MyInput
           type="password"
           name="password"
           placeholder="Пароль"
           value={formData.password}
           onChange={handleChange}
           required
-          className="border p-2 w-full rounded mb-3"
-        />
+         />
+        </div>
 
-        <button
+        <div className={styles.registrationBtn__container}>
+        <MyButton
           type="submit"
-          className="bg-blue-500 text-white p-2 w-full rounded"
-        >
+          className={styles.registrationBtn}
+          >
           Зареєструватися
-        </button>
+        </MyButton>
+        </div>
+        <p className={styles.registration_subtitle}>Вже маєш аккаунт?</p>
+        <div className={styles.registrationBtn__container}>
+          <MyButton
+            type="button"
+            onClick={() => navigate("/login")}
+            style={{ width: "50%", alignSelf: "center"}}
+          >
+            Увійти
+          </MyButton>
+          </div>
       </form>
     </div>
   );

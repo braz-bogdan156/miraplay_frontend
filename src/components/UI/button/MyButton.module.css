@@ -1,0 +1,28 @@
+.myBtn {
+    width: 90%;
+    max-width: 350px;
+   
+    height: 78px;
+    
+    
+    background: #3f9c14;
+    box-shadow: 0px 20px 40px rgba(63, 156, 20, 0.3);
+    border-radius: 10px;
+
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 143%;
+
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--main-text-color);
+    border: none;
+    cursor: pointer;
+    z-index: 14;
+    transition: all 0.2s linear;
+    border-color: var(--main-green-color);
+    }
+
+    .myBtn:hover{
+    box-shadow: 0px -20px 40px rgba(63, 156, 20, 0.3);
+    }

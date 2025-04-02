@@ -1,0 +1,28 @@
+.form_LoginContainer{
+   min-width: 80vw;
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    background-color: var( --main-bg-color);
+  }
+
+  .title {
+    color: var(--main-text-color);
+    text-align: center;
+  }
+
+  .loginBtn__container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }

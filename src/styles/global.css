@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+ul,
+ol li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@font-face {
+    font-family: 'NeueMachina', sans-serif;
+    src: url('../../public/assets/fonts/PPNeueMachina-Regular.otf') format('truetype');
+}
+
+#root {
+    --main-green-color: #3f9c14;
+    --main-text-color: #eaeaea;
+    --second-text-color: #afafaf;
+    --main-bg-color: #181818;
+    --error-color: #df1332;
+}
+
+
+.App {
+    width: 90%;
+}

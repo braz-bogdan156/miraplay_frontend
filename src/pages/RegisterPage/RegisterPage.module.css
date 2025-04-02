@@ -1,0 +1,50 @@
+.formContainer {
+    min-width: 80vw;
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0 auto; /* Центрування контейнера по горизонталі */
+   padding: 20px; /* Додано відступ для адаптивності */
+  }
+  
+  .form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+    background-color: var( --main-bg-color);
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+
+  .registrationBtn__container{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+
+  .registrationInputes__container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center; 
+    align-items: center;
+  }
+
+  .registration_subtitle{
+    color: var(--main-text-color);
+    text-align: center;
+  }
+
+  

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../slices/auth/authSlice";
+import { login } from "../../slices/auth/authSlice";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import MyInput from "../../components/UI/input/MyInput";
+import styles from "./LoginPage.module.css"
+import MyButton from "../../components/UI/button/MyButton";
 
 const api = axios.create({
   baseURL: "http://localhost:5000/api",
@@ -46,31 +49,32 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-96">
-        <h2 className="text-2xl mb-4">Увійти</h2>
-        {error && <p className="text-red-500">{error}</p>}
-        <input
+    <div className={styles.form_LoginContainer}>
+      <form className= {styles.form}
+      onSubmit={handleSubmit}>
+        <h2 className={styles.title}>Увійти</h2>
+        {error && <p >{error}</p>}
+        <MyInput
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 border rounded mb-2"
-        />
-        <input
+           />
+        <MyInput
           type="password"
           placeholder="Пароль"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 border rounded mb-2"
+          
         />
-        <button
+        <div className = {styles.loginBtn__container}>
+        <MyButton
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded"
           disabled={mutation.status === 'pending'}
         >
           {mutation.status === 'pending' ? "Завантаження..." : "Увійти"}
-        </button>
+        </MyButton>
+        </div>
       </form>
     </div>
   );

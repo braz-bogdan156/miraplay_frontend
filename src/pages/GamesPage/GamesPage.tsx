@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { Game } from "../types/interfaces";
+import { Game } from "../../types/interfaces";
 import axios from "axios";
+import GamesList from "../../components/GamesList";
+import MyButton from "../../components/UI/button/MyButton";
 
 const apiGame = axios.create({
   baseURL: "http://localhost:5000/api",
@@ -45,10 +47,10 @@ const GamesPage = () => {
   });
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold">Список ігор</h2>
+    <div >
+      <h2 >Список ігор</h2>
       <select
-        className="p-2 border rounded mt-3"
+        
         value={genre}
         onChange={(e) => setGenre(e.target.value)}
       >
@@ -56,25 +58,27 @@ const GamesPage = () => {
           <option key={g} value={g}>{g}</option>
         ))}
       </select>
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div >
         {data?.pages.flatMap((page) =>
-          page.games.map((game: Game) => (
-            <div key={game.id} className="p-4 border rounded">
+          page.games.map((game: Game,  index: number) => (
+            <div key={`${game._id}-${index}`}>
               <h3>{game.systemGameName}</h3>
             </div>
           ))
         )}
       </div>
       {hasNextPage && (
-        <button
-          className="mt-4 p-2 bg-blue-500 text-white rounded"
+        <MyButton
+          
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
         >
           {isFetchingNextPage ? "Завантаження..." : "Показати ще"}
-        </button>
+        </MyButton>
       )}
+      <GamesList/>
     </div>
+    
   );
 };
 
