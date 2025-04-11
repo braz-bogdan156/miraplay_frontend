@@ -20,8 +20,10 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setError(""); // Очистка помилок
-    const registerURL = import.meta.env.VITE_API_REGISTER_URL;
+    
     try {
+      const registerURL = import.meta.env.VITE_API_REGISTER_URL;
+     
       const response = await fetch(registerURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
