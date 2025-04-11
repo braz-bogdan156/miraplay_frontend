@@ -1,32 +1,36 @@
 import { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Game } from "../../types/interfaces";
-import axios from "axios";
+import api from "../../api/api";
 import GamesList from "../../components/GamesList";
 import MyButton from "../../components/UI/button/MyButton";
 
-const apiGame = axios.create({
-  baseURL: "http://localhost:5000/api",
-});
 
-apiGame.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
 
 const fetchGames = async ({ pageParam = 1, queryKey }: { pageParam?: number; queryKey: string[] }) => {
   const genre = queryKey[1];
   const genreParam = genre !== "ALL" ? `&genre=${genre}` : "";
-  const res = await apiGame.get(`/games/findAll?page=${pageParam}&limit=9${genreParam}`);
+  const res = await api.get(`/games/findAll?page=${pageParam}&limit=9${genreParam}`);
   return {
     games: res.data.games,
     totalGames: res.data.totalGames,
     nextPage: res.data.games.length < res.data.totalGames ? pageParam + 1 : undefined,
   };
 };
+
+const gameGenres = [
+  "ALL",
+  "FREE",
+  "MOBA",
+  "SHOOTERS",
+  "LAUNCHERS",
+  "MMORPG",
+  "STRATEGY",
+  "FIGHTING",
+  "RACING",
+  "SURVIVAL",
+  "ONLINE"
+];
 
 const GamesPage = () => {
   const [genre, setGenre] = useState("ALL");
@@ -54,7 +58,7 @@ const GamesPage = () => {
         value={genre}
         onChange={(e) => setGenre(e.target.value)}
       >
-        {["ALL", "FREE", "MOBA", "SHOOTERS", "LAUNCHERS", "MMORPG", "STRATEGY", "FIGHTING", "RACING", "SURVIVAL", "ONLINE"].map((g) => (
+        {gameGenres.map((g) => (
           <option key={g} value={g}>{g}</option>
         ))}
       </select>

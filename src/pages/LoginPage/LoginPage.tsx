@@ -2,23 +2,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../slices/auth/authSlice";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+import api from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import MyInput from "../../components/UI/input/MyInput";
 import styles from "./LoginPage.module.css"
 import MyButton from "../../components/UI/button/MyButton";
 
-const api = axios.create({
-  baseURL: "http://localhost:5000/api",
-});
 
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
 
 const LoginPage = () => {
   const dispatch = useDispatch();

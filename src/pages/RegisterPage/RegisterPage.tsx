@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "../../components/UI/button/MyButton";
 import MyInput from "../../components/UI/input/MyInput";
-import styles from "./RegisterPage.module.css"
+import styles from "./RegisterPage.module.css";
+import { FormData } from "../../types/interfaces";
 
 
 const RegisterPage = () => {
@@ -10,10 +11,7 @@ const RegisterPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-interface FormData {
-    email: string;
-    password: string;
-}
+
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name as keyof FormData]: e.target.value });

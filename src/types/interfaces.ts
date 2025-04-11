@@ -23,4 +23,7 @@ export interface Game {
   gameHero: string;
 }
 
-
+export interface FormData {
+  email: string;
+  password: string;
+}
