@@ -20,9 +20,9 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setError(""); // Очистка помилок
-
+    const registerURL = import.meta.env.VITE_API_REGISTER_URL;
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(registerURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
