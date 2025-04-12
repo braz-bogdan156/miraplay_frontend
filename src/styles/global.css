@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-}
-
 ul,
 ol li {
     list-style: none;
@@ -49,6 +44,3 @@ img {
 }
 
 
-.App {
-    /* width: 100%; */
-}
