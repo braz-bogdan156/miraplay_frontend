@@ -1,0 +1,106 @@
+
+
+.container {
+    background-color: var(--main-bg-color);
+    background-size: cover;
+    
+   
+    color: var(--main-text-color);
+    font-family: 'NeueMachina', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+
+    min-height: 100vh;
+    
+  
+    max-width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+   
+    
+}
+
+.gameTitle {
+    width: 100%;
+    color: var(--main-text-color);
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 100%;
+    margin-bottom: 42px;
+    text-transform: uppercase;
+}
+
+
+
+.genreList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.genreItem {
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: #242424;
+    border: 1px solid #454545;
+    border-radius: 10px;
+    color: var(--main-text-color);
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 800;
+    height: 46px;
+    justify-content: center;
+    line-height: 143%;
+    padding: 0 25px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.genreItem:first-child{
+    background-color: var(--main-green-color);
+}
+
+
+.gameImage{
+        border: 1px solid #454545;
+        border-radius: 10px;
+        height: 170px;
+        margin-bottom: 15px;
+        transition: all .2s linear;
+        width: 170px;
+}
+
+.gameImage:hover{
+        opacity: 0.5;
+        cursor: pointer;
+}
+
+.gameList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 65px;
+    
+}
+
+.gameTitl{
+    color: var(--main-text-color);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 115%;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+        width: 100%;
+}
+
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
