@@ -62,6 +62,8 @@
 }
 
 .gameTitl {
+    max-width: 100px;
+    width: 100%;
     color: var(--main-text-color);
     font-size: 15px;
     font-weight: 800;
@@ -69,6 +71,6 @@
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
-    width: 100%;
+    
 }
 
