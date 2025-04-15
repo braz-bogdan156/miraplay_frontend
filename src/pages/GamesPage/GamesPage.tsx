@@ -8,8 +8,6 @@ import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
 import GameDetails from "../../components/GameDetails/GameDetails"; 
 import styles from "./GamesPage.module.css";
 
-
-
 const fetchGames = async ({ pageParam = 1, queryKey }: { pageParam?: number; queryKey: string[] }) => {
   const genre = queryKey[1];
   const genreParam = genre !== "ALL" ? `&genre=${genre}` : "";
