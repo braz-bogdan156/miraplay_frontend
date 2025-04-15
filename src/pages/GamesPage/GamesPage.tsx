@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { Game } from "../../types/interfaces";
 import api from "../../api/api";
 import GamesList from "../../components/GamesList";
-import MyButton from "../../components/UI/button/MyButton";
+import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton"; 
 import styles from "./GamesPage.module.css";
 
 
@@ -39,8 +39,8 @@ const GamesPage = () => {
 
   const {
     data,
-    fetchNextPage,
     hasNextPage,
+    fetchNextPage,
     isFetchingNextPage,
   } = useInfiniteQuery({
     queryKey: ["games", genre],
@@ -72,33 +72,34 @@ const GamesPage = () => {
           </li>
         ))}
       </ul>
-      <ul className= {styles.gameList}> 
-        {data?.pages.flatMap((page) =>
-          page.games.map((game: Game,  index: number) => (
-            <div key={`${game._id}-${index}`}>
-              <li>
-              <img
-                className={styles.gameImage}
-                src={game.gameImage}
-                alt={game.systemGameName}
-                onClick={ () => handleGameClick(game)} />
-              <h3 className={styles.gameTitl}>{game.systemGameName}</h3>
-              </li>
-            </div>
-          ))
-        )}
-      </ul>
-      {hasNextPage && (
-        <div className= {styles.buttonContainer}>
-        <MyButton
-          
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
-          {isFetchingNextPage ? "Завантаження..." : "Показати ще"}
-        </MyButton>
-        </div>
-      )}
+      <ul className={styles.gameList}>
+  {(() => {
+    const seenIds = new Set<string>();
+    const uniqueGames: Game[] = [];
+
+    data?.pages.forEach((page) => {
+      page.games.forEach((game: Game) => {
+        if (!seenIds.has(game._id)) {
+          seenIds.add(game._id);
+          uniqueGames.push(game);
+        }
+      });
+    });
+
+    return uniqueGames.map((game) => (
+      <li key={game._id}>
+        <img
+          className={styles.gameImage}
+          src={game.gameImage}
+          alt={game.systemGameName}
+          onClick={() => handleGameClick(game)}
+        />
+        <h3 className={styles.gameTitl}>{game.systemGameName}</h3>
+      </li>
+    ));
+  })()}
+</ul>
+      <LoadMoreButton hasNextPage={hasNextPage} fetchNextPage={fetchNextPage} isFetchingNextPage={isFetchingNextPage}/>
       {selectedGame && (
         <div className={styles.gameDetails}>
           <h3>{selectedGame.commonGameName}</h3>
