@@ -27,3 +27,9 @@ export interface FormData {
   email: string;
   password: string;
 }
+
+export interface LoadMoreButtonProps {
+  hasNextPage: boolean;
+  fetchNextPage: () => void;
+  isFetchingNextPage: boolean;
+}

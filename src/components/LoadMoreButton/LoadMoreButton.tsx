@@ -1,11 +1,6 @@
 import MyButton from "../UI/button/MyButton";
 import styles from "./LoadMoreButton.module.css";
-
-interface LoadMoreButtonProps {
-  hasNextPage: boolean;
-  fetchNextPage: () => void;
-  isFetchingNextPage: boolean;
-}
+import { LoadMoreButtonProps } from "../../types/interfaces";
 
 const LoadMoreButton = ({ hasNextPage, fetchNextPage, isFetchingNextPage }: LoadMoreButtonProps) => {
     
