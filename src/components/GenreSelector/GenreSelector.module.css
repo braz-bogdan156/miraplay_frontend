@@ -1,0 +1,30 @@
+.genreList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.genreItem {
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: #242424;
+    border: 1px solid #454545;
+    border-radius: 10px;
+    color: var(--main-text-color);
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 800;
+    height: 46px;
+    justify-content: center;
+    line-height: 143%;
+    padding: 0 25px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.genreItem:first-child {
+    background-color: var(--main-green-color);
+}

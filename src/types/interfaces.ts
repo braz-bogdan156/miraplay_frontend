@@ -33,3 +33,9 @@ export interface LoadMoreButtonProps {
   fetchNextPage: () => void;
   isFetchingNextPage: boolean;
 }
+
+export interface GenreSelectorProps {
+  genre: string;
+  setGenre: (genre: string) => void;
+  gameGenres: string[];
+}

@@ -3,6 +3,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { Game } from "../../types/interfaces";
 import api from "../../api/api";
 import GamesList from "../../components/GamesList";
+import GenreSelector from "../../components/GenreSelector/GenreSelector";
 import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
 import GameDetails from "../../components/GameDetails/GameDetails"; 
 import styles from "./GamesPage.module.css";
@@ -59,20 +60,7 @@ const GamesPage = () => {
   return (
     <div className={styles.container}>
       <h2 className={styles.gameTitle}>Список ігор</h2>
-      <ul className={styles.genreList}>
-        {gameGenres.map((g) => (
-          <li
-            className={styles.genreItem}
-            key={g}
-            onClick={() => setGenre(g)}
-            style={{ cursor: "pointer", 
-              fontWeight: genre === g ? "bold" : "normal",
-              backgroundColor: genre === g ? "var(--main-green-color)" : "transparent", }}
-          >
-            {g}
-          </li>
-        ))}
-      </ul>
+     <GenreSelector genre={genre} setGenre={setGenre} gameGenres={gameGenres}/>
       <ul className={styles.gameList}>
   {(() => {
     const seenIds = new Set<string>();
