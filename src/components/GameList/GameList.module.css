@@ -1,0 +1,34 @@
+.gameTitl {
+    max-width: 100px;
+    width: 100%;
+    color: var(--main-text-color);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 115%;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+}
+
+.gameImage {
+    border: 1px solid #454545;
+    border-radius: 10px;
+    height: 170px;
+    margin-bottom: 15px;
+    transition: all .2s linear;
+    width: 170px;
+}
+
+.gameImage:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.gameList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 65px;
+
+}
