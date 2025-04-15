@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import { Game } from '../types/interfaces';
 
-const socket = io('http://localhost:5000'); // Адреса бекенду
+const socket = io(import.meta.env.VITE_SOCKET_URL); // Адреса бекенду
 
 const GamesListSocket = () => {
   
