@@ -4,7 +4,7 @@ import { Game } from '../types/interfaces';
 
 const socket = io('http://localhost:5000'); // Адреса бекенду
 
-const GamesList = () => {
+const GamesListSocket = () => {
   
 
   const [games, setGames] = useState<Game[]>([]);
@@ -37,4 +37,4 @@ const GamesList = () => {
   );
 };
 
-export default GamesList;
+export default GamesListSocket;

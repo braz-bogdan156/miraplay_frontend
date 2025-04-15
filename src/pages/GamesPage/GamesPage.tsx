@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Game } from "../../types/interfaces";
 import api from "../../api/api";
-import GamesList from "../../components/GamesList";
+import GamesListSocket from "../../components/GamesListSocket";
 import GenreSelector from "../../components/GenreSelector/GenreSelector";
 import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
 import GameDetails from "../../components/GameDetails/GameDetails"; 
@@ -90,7 +90,7 @@ const GamesPage = () => {
 </ul>
       <LoadMoreButton hasNextPage={hasNextPage} fetchNextPage={fetchNextPage} isFetchingNextPage={isFetchingNextPage}/>
       <GameDetails selectedGame={selectedGame}/>
-      <GamesList/>
+      <GamesListSocket/>
     </div>
     
   );
