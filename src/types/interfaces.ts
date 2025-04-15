@@ -1,6 +1,4 @@
 export interface Game {
-  
-  
   _id: string;
   systemGameName: string;
   commonGameName: string;
