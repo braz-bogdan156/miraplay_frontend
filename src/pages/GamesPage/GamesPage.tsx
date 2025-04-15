@@ -3,7 +3,8 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { Game } from "../../types/interfaces";
 import api from "../../api/api";
 import GamesList from "../../components/GamesList";
-import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton"; 
+import LoadMoreButton from "../../components/LoadMoreButton/LoadMoreButton";
+import GameDetails from "../../components/GameDetails/GameDetails"; 
 import styles from "./GamesPage.module.css";
 
 
@@ -100,15 +101,7 @@ const GamesPage = () => {
   })()}
 </ul>
       <LoadMoreButton hasNextPage={hasNextPage} fetchNextPage={fetchNextPage} isFetchingNextPage={isFetchingNextPage}/>
-      {selectedGame && (
-        <div className={styles.gameDetails}>
-          <h3>{selectedGame.commonGameName}</h3>
-          <p>{selectedGame.gameDescription}</p>
-          <p>Жанр: {selectedGame.genre}</p>
-          <p>Дата випуску: {selectedGame.releaseDate}</p>
-          <p>Видавець: {selectedGame.publisher}</p>
-        </div>
-      )}
+      <GameDetails selectedGame={selectedGame}/>
       <GamesList/>
     </div>
     
